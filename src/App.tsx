@@ -64,6 +64,29 @@ const copy = {
     newsletterTitle: 'Get weekly money confidence tips',
     newsletterPlaceholder: 'Your email address',
     newsletterButton: 'Subscribe',
+
+    aboutTitle: 'About HerMoney (Belgium)',
+    aboutSocialProof: 'Join 5,000+ Belgian women',
+    manifestoKicker: 'Manifesto',
+    manifestoTitle: 'The 50% pension gap in Belgium isn’t just a stat—it’s a call to action.',
+    manifestoBody:
+      'We’re empowering Belgian women to take control of their financial future with clarity, confidence, and community—without the cold “bank” vibe.',
+    valuesTitle: 'Our values',
+    value1Title: 'Transparency',
+    value1Body: 'Clear guidance. No hidden agendas. No shame.',
+    value2Title: 'Simplicity',
+    value2Body: 'Money lessons that feel like a friend—not a textbook.',
+    value3Title: 'Community',
+    value3Body: 'Because confidence grows faster together.',
+    founderTitle: 'Meet the Founder',
+    founderBio:
+      'Founder bio placeholder: a short, warm story about why she started HerMoney Belgium and how she helps women feel calm and capable with money.',
+    founderQuote:
+      '“I want every woman in Belgium to feel like she finally has a plan—and a place to ask questions.”',
+    founderSignOff: '— Founder, HerMoney Belgium',
+    localTitle: 'Local expertise, Belgian realities',
+    localBody:
+      'We cover Belgian specifics like TOB (beurstaks), tax nuances, and the 3 pension pillars—so your decisions fit your real life in Belgium.',
   },
   nl: {
     languageLabel: 'Taal',
@@ -126,6 +149,30 @@ const copy = {
     newsletterTitle: 'Ontvang wekelijks tips voor meer geldvertrouwen',
     newsletterPlaceholder: 'Jouw e-mailadres',
     newsletterButton: 'Inschrijven',
+
+    aboutTitle: 'Over HerMoney (België)',
+    aboutSocialProof: 'Sluit je aan bij 5.000+ Belgische vrouwen',
+    manifestoKicker: 'Manifesto',
+    manifestoTitle:
+      'De 50% pensioenkloof in België is niet zomaar een cijfer—het is een call to action.',
+    manifestoBody:
+      'Wij versterken Belgische vrouwen om controle te nemen over hun financiële toekomst—met helderheid, vertrouwen en community. Warm, menselijk en zonder “bank-taal”.',
+    valuesTitle: 'Onze waarden',
+    value1Title: 'Transparantie',
+    value1Body: 'Duidelijk advies. Geen verborgen agenda. Geen schaamte.',
+    value2Title: 'Simpel',
+    value2Body: 'Geldlessen zoals een vriendin het zou uitleggen.',
+    value3Title: 'Community',
+    value3Body: 'Want samen groeit je zelfzekerheid sneller.',
+    founderTitle: 'Meet the Founder',
+    founderBio:
+      'Founder bio placeholder: een korte, warme story over waarom HerMoney België begon en hoe ze vrouwen helpt rustig en sterk te worden met geld.',
+    founderQuote:
+      '“Ik wil dat elke vrouw in België voelt: ik heb eindelijk een plan—en ik mag vragen stellen.”',
+    founderSignOff: '— Founder, HerMoney België',
+    localTitle: 'Lokale expertise, Belgische realiteit',
+    localBody:
+      'We behandelen Belgische nuances zoals TOB (beurstaks), fiscaliteit en de 3 pensioenpijlers—zodat je keuzes écht passen bij je leven in België.',
   },
   tr: {
     languageLabel: 'Dil',
@@ -188,6 +235,30 @@ const copy = {
     newsletterTitle: 'Haftalık para güveni ipuçları al',
     newsletterPlaceholder: 'E-posta adresin',
     newsletterButton: 'Abone Ol',
+
+    aboutTitle: 'HerMoney (Belçika) Hakkında',
+    aboutSocialProof: '5.000+ Belçikalı kadına katıl',
+    manifestoKicker: 'Manifesto',
+    manifestoTitle:
+      'Belçika’daki %50 emeklilik farkı sadece bir istatistik değil—harekete geçme çağrısı.',
+    manifestoBody:
+      'Belçika’daki kadınların finansal geleceğini ele almasına yardımcı oluyoruz: netlik, özgüven ve topluluk ile. Banka gibi soğuk değil—ablalık gibi.',
+    valuesTitle: 'Değerlerimiz',
+    value1Title: 'Şeffaflık',
+    value1Body: 'Net rehberlik. Gizli gündem yok. Utandırma yok.',
+    value2Title: 'Sadelik',
+    value2Body: 'Ders gibi değil; bir arkadaş gibi anlatım.',
+    value3Title: 'Topluluk',
+    value3Body: 'Çünkü güven birlikte daha hızlı büyür.',
+    founderTitle: 'Kurucuyla Tanış',
+    founderBio:
+      'Founder bio placeholder: HerMoney Belçika’yı neden kurduğunu ve kadınlara parayla daha sakin ve güçlü hissetmeleri için nasıl destek olduğunu anlatan kısa bir hikâye.',
+    founderQuote:
+      '“Belçika’daki her kadının ‘artık bir planım var’ demesini istiyorum—ve soru sormaya alanı olsun.”',
+    founderSignOff: '— Kurucu, HerMoney Belçika',
+    localTitle: 'Yerel uzmanlık, Belçika gerçekleri',
+    localBody:
+      'TOB (borsa vergisi), vergi detayları ve 3 emeklilik sütunu gibi Belçika’ya özel konuları ele alıyoruz—kararların gerçek hayatına uysun diye.',
   },
   fr: {
     languageLabel: 'Langue',
@@ -250,6 +321,30 @@ const copy = {
     newsletterTitle: 'Reçois chaque semaine des conseils de confiance financière',
     newsletterPlaceholder: 'Ton adresse e-mail',
     newsletterButton: "S'abonner",
+
+    aboutTitle: 'À propos de HerMoney (Belgique)',
+    aboutSocialProof: 'Rejoindre 5 000+ femmes belges',
+    manifestoKicker: 'Manifeste',
+    manifestoTitle:
+      'L’écart de pension de 50% en Belgique n’est pas qu’une statistique—c’est un appel à l’action.',
+    manifestoBody:
+      'Nous aidons les femmes belges à reprendre le contrôle de leur avenir financier avec clarté, confiance et communauté—sans l’ambiance froide d’une banque.',
+    valuesTitle: 'Nos valeurs',
+    value1Title: 'Transparence',
+    value1Body: 'Des conseils clairs. Pas d’agendas cachés. Zéro jugement.',
+    value2Title: 'Simplicité',
+    value2Body: 'Des explications comme une amie—pas comme un manuel.',
+    value3Title: 'Communauté',
+    value3Body: 'Parce que la confiance se construit plus vite ensemble.',
+    founderTitle: 'Rencontrer la fondatrice',
+    founderBio:
+      'Founder bio placeholder : une histoire courte et chaleureuse sur le “pourquoi” de HerMoney Belgique et la façon d’aider les femmes à se sentir calmes et capables avec l’argent.',
+    founderQuote:
+      '“Je veux que chaque femme en Belgique se dise : j’ai enfin un plan—et un espace pour poser mes questions.”',
+    founderSignOff: '— Fondatrice, HerMoney Belgique',
+    localTitle: 'Expertise locale, réalités belges',
+    localBody:
+      'Nous abordons les spécificités belges comme la TOB (taxe boursière), les nuances fiscales et les 3 piliers de pension—pour que tes décisions collent à ta vraie vie en Belgique.',
   },
 } as const satisfies Record<Language, {
   languageLabel: string
@@ -309,6 +404,25 @@ const copy = {
   newsletterTitle: string
   newsletterPlaceholder: string
   newsletterButton: string
+
+  aboutTitle: string
+  aboutSocialProof: string
+  manifestoKicker: string
+  manifestoTitle: string
+  manifestoBody: string
+  valuesTitle: string
+  value1Title: string
+  value1Body: string
+  value2Title: string
+  value2Body: string
+  value3Title: string
+  value3Body: string
+  founderTitle: string
+  founderBio: string
+  founderQuote: string
+  founderSignOff: string
+  localTitle: string
+  localBody: string
 }>
 
 function App() {
@@ -342,7 +456,7 @@ function App() {
   return (
     <div className="min-h-dvh bg-transparent text-[#2b1f33]">
       <header className="sticky top-0 z-50 border-b border-[#d9cde5] bg-[#f8f5fb]/92 backdrop-blur">
-        <nav className="hm-container flex min-h-16 flex-wrap items-center justify-between gap-3 py-3">
+        <nav className="hm-container flex min-h-16 flex-wrap items-center justify-between gap-3 py-3 md:flex-nowrap">
           <a href="#hero" className="inline-flex items-center">
             <img src={logoPath} alt="HerMoney" className="h-14 w-auto object-contain" />
           </a>
@@ -365,7 +479,7 @@ function App() {
             </a>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-end">
             <div className="inline-flex items-center rounded-md bg-[#7f6aa1] px-2 py-1 ring-1 ring-[#6d588f]">
               <label
                 htmlFor="language"
@@ -434,6 +548,113 @@ function App() {
                 alt="Women empowerment illustration"
                 className="h-44 w-full rounded-2xl object-cover ring-1 ring-[#e4d9ee] sm:col-span-2 sm:h-52"
               />
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="about"
+          className="border-y border-[#e7ddee] bg-white/60 py-12 backdrop-blur md:py-16"
+        >
+          <div className="hm-container">
+            <div className="flex flex-col gap-8">
+              <div className="animate-on-scroll animate-fade-up">
+                <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+                  <h2 className="text-2xl font-bold tracking-tight text-[#2f2240] sm:text-3xl">
+                    <span className="font-[ui-serif,Georgia,serif]">{t.aboutTitle}</span>
+                  </h2>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#f3eee7] px-4 py-2 text-sm font-semibold text-[#2c2a3f] ring-1 ring-[#eadff1]">
+                    <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#c96c5f]" />
+                    {t.aboutSocialProof}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+                <div className="animate-on-scroll animate-fade-right md:col-span-7">
+                  <div className="rounded-3xl bg-white p-7 ring-1 ring-[#eadff1] shadow-[0_14px_30px_rgba(107,77,146,0.10)]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6d4c92]">
+                      {t.manifestoKicker}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-bold leading-tight text-[#2f2240] sm:text-3xl">
+                      <span className="font-[ui-serif,Georgia,serif]">{t.manifestoTitle}</span>
+                    </h3>
+                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#66597f]">
+                      {t.manifestoBody}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="animate-on-scroll animate-fade-up md:col-span-5">
+                  <div className="rounded-3xl bg-gradient-to-br from-[#f3eee7] to-[#efe5f6] p-7 ring-1 ring-[#eadff1]">
+                    <h3 className="text-lg font-semibold text-[#2f2240]">
+                      <span className="font-[ui-serif,Georgia,serif]">{t.valuesTitle}</span>
+                    </h3>
+                    <div className="mt-4 grid gap-3">
+                      <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-[#eadff1]">
+                        <p className="text-sm font-semibold text-[#2f2240]">{t.value1Title}</p>
+                        <p className="mt-1 text-sm text-[#66597f]">{t.value1Body}</p>
+                      </div>
+                      <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-[#eadff1]">
+                        <p className="text-sm font-semibold text-[#2f2240]">{t.value2Title}</p>
+                        <p className="mt-1 text-sm text-[#66597f]">{t.value2Body}</p>
+                      </div>
+                      <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-[#eadff1]">
+                        <p className="text-sm font-semibold text-[#2f2240]">{t.value3Title}</p>
+                        <p className="mt-1 text-sm text-[#66597f]">{t.value3Body}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+                <div className="animate-on-scroll animate-fade-up md:col-span-7">
+                  <div className="rounded-3xl bg-white p-7 ring-1 ring-[#eadff1] shadow-[0_14px_30px_rgba(107,77,146,0.10)]">
+                    <h3 className="text-lg font-semibold text-[#2f2240]">
+                      <span className="font-[ui-serif,Georgia,serif]">{t.founderTitle}</span>
+                    </h3>
+                    <div className="mt-5 grid gap-5 sm:grid-cols-[96px_1fr] sm:items-start">
+                      <div
+                        className="h-24 w-24 rounded-2xl bg-gradient-to-br from-[#2f2240] to-[#6d4c92] ring-1 ring-[#eadff1]"
+                        role="img"
+                        aria-label="Founder portrait placeholder"
+                      />
+                      <div>
+                        <p className="text-sm leading-relaxed text-[#66597f]">{t.founderBio}</p>
+                        <blockquote className="mt-4 rounded-2xl bg-[#f8f2fc] p-4 ring-1 ring-[#eadff1]">
+                          <p className="text-sm font-semibold text-[#2f2240]">{t.founderQuote}</p>
+                          <p className="mt-3 text-sm text-[#5b4b74]">
+                            <span className="font-[cursive]">{t.founderSignOff}</span>
+                          </p>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="animate-on-scroll animate-fade-right md:col-span-5">
+                  <div className="rounded-3xl bg-[#2b2238] p-7 text-white shadow-[0_18px_45px_rgba(47,34,64,0.25)] ring-1 ring-white/10">
+                    <h3 className="text-lg font-semibold">
+                      <span className="font-[ui-serif,Georgia,serif]">{t.localTitle}</span>
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/85">
+                      {t.localBody}
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">
+                        TOB
+                      </span>
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">
+                        Pension Pillars
+                      </span>
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">
+                        Belgium-first
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -604,13 +825,18 @@ function App() {
 
           <div>
             <p className="text-sm font-semibold text-[#4a3a63]">{t.newsletterTitle}</p>
-            <form className="mt-3 flex gap-2">
+            <form className="mt-3 flex flex-col gap-2 sm:flex-row">
               <input
                 type="email"
                 placeholder={t.newsletterPlaceholder}
                 className="w-full rounded-xl border border-[#d9cce5] bg-white px-3 py-2 text-sm text-[#3d3154] outline-none"
               />
-              <button type="submit" className="hm-cta-primary !px-4 !py-2">{t.newsletterButton}</button>
+              <button
+                type="submit"
+                className="hm-cta-primary !w-full !px-4 !py-2 sm:!w-auto"
+              >
+                {t.newsletterButton}
+              </button>
             </form>
           </div>
         </div>

@@ -22,15 +22,15 @@
   }
 
   .hm-nav-link {
-    @apply rounded-md px-3 py-2 text-sm font-medium text-[#625279] transition hover:bg-[#ebe2f3] hover:text-[#3b2b56];
+    @apply inline-flex min-h-11 items-center rounded-md px-3 py-2.5 text-sm font-medium text-[#625279] transition hover:bg-[#ebe2f3] hover:text-[#3b2b56];
   }
 
   .hm-cta-primary {
-    @apply inline-flex items-center justify-center rounded-xl bg-[#7f5aa8] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110;
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-[#7f5aa8] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110;
   }
 
   .hm-cta-secondary {
-    @apply inline-flex items-center justify-center rounded-xl border border-[#d6c8e5] bg-white px-5 py-2.5 text-sm font-semibold text-[#6d4c92] transition hover:bg-[#f8f2fc];
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-[#d6c8e5] bg-white px-5 py-2.5 text-sm font-semibold text-[#6d4c92] transition hover:bg-[#f8f2fc];
   }
 
   .hm-section-title {
