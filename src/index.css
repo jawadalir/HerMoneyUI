@@ -10,9 +10,9 @@
   body {
     @apply font-sans text-white antialiased;
     background:
-      radial-gradient(circle at 12% 8%, #ece4f4 0%, transparent 42%),
-      radial-gradient(circle at 82% 0%, #ddd0ea 0%, transparent 44%),
-      linear-gradient(180deg, #fbf8fd 0%, #f3ecf9 52%, #ebe1f3 100%);
+      radial-gradient(circle at 12% 8%, #4b3570 0%, transparent 42%),
+      radial-gradient(circle at 82% 0%, #3f2d62 0%, transparent 44%),
+      linear-gradient(180deg, #2a1d3f 0%, #241936 52%, #1f152f 100%);
   }
 }
 
@@ -22,47 +22,47 @@
   }
 
   .hm-nav-link {
-    @apply inline-flex min-h-11 items-center rounded-md px-3 py-2.5 text-sm font-medium text-[#625279] transition hover:bg-[#ebe2f3] hover:text-[#3b2b56];
+    @apply inline-flex min-h-11 items-center rounded-md px-3 py-2.5 text-sm font-medium text-[#d9cbea] transition hover:bg-[#4f3973] hover:text-white;
   }
 
   .hm-cta-primary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-[#7f5aa8] px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110;
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-[#7f5aa8] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#9370bc];
   }
 
   .hm-cta-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-[#d6c8e5] bg-white px-5 py-2.5 text-sm font-semibold text-[#6d4c92] transition hover:bg-[#f8f2fc];
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-[#765595] bg-[#2f2245] px-5 py-2.5 text-sm font-semibold text-[#e3d8f2] transition hover:bg-[#3a2a55];
   }
 
   .hm-section-title {
-    @apply text-2xl font-bold tracking-tight text-[#2e2443] sm:text-3xl;
+    @apply text-2xl font-bold tracking-tight text-[#f3ecff] sm:text-3xl;
   }
 
   .hm-card {
-    @apply rounded-2xl bg-white p-6 ring-1 ring-[#eadff1] shadow-[0_12px_26px_rgba(107,77,146,0.10)];
+    @apply rounded-2xl bg-[#312347]/85 p-6 ring-1 ring-[#5a427a] shadow-[0_12px_26px_rgba(8,4,16,0.35)];
   }
 
   .hm-card-title {
-    @apply text-lg font-semibold text-[#3a2c58];
+    @apply text-lg font-semibold text-[#f2eafe];
   }
 
   .hm-card-body {
-    @apply mt-3 text-sm leading-relaxed text-[#66597f];
+    @apply mt-3 text-sm leading-relaxed text-[#d2c2e7];
   }
 
   .hm-pill {
-    @apply rounded-full bg-[#efe5f6] px-3 py-1 text-xs font-semibold text-[#5b4b74];
+    @apply rounded-full bg-[#3b2b57] px-3 py-1 text-xs font-semibold text-[#ddcfef] ring-1 ring-[#5b427c];
   }
 
   .hm-tip-card {
-    @apply rounded-2xl bg-white p-5 text-sm font-medium leading-relaxed text-[#5a4a74] ring-1 ring-[#eadff1] shadow-[0_12px_28px_rgba(107,77,146,0.10)];
+    @apply rounded-2xl bg-[#312347]/85 p-5 text-sm font-medium leading-relaxed text-[#d7c8ea] ring-1 ring-[#5a427a] shadow-[0_12px_28px_rgba(8,4,16,0.35)];
   }
 
   .hm-icon-dot {
-    @apply inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#efe5f6] text-sm font-bold text-[#6d4c92];
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#4a3469] text-sm font-bold text-[#eedfff];
   }
 
   .hm-inline-link {
-    @apply mt-3 inline-flex text-sm font-semibold text-[#7f5aa8] hover:text-[#6e4d95];
+    @apply mt-3 inline-flex text-sm font-semibold text-[#cdb4eb] hover:text-[#e8dcf8];
   }
 }
 

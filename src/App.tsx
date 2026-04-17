@@ -614,8 +614,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-dvh bg-transparent text-[#2b1f33]">
-      <header className="sticky top-0 z-50 border-b border-[#d9cde5] bg-[#f8f5fb]/92 backdrop-blur">
+    <div className="min-h-dvh bg-transparent text-[#f1eaff]">
+      <header className="sticky top-0 z-50 border-b border-[#4f3a69] bg-[#251a37]/92 backdrop-blur">
         <nav className="hm-container flex min-h-16 flex-wrap items-center justify-between gap-3 py-3 md:flex-nowrap">
           <a href="#hero" className="inline-flex items-center">
             <img
@@ -643,30 +643,32 @@ function App() {
             </a>
           </div>
 
-          <div className="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-end">
-            <div className="inline-flex items-center rounded-md bg-[#7f6aa1] px-2 py-1 ring-1 ring-[#6d588f]">
-              <label
-                htmlFor="language"
-                className="mr-1 hidden text-[11px] font-medium uppercase tracking-wide text-white sm:inline"
-              >
-                {t.languageLabel}
-              </label>
+          <div className="flex w-full items-center justify-end gap-2 sm:w-auto sm:justify-end">
+            <div className="relative inline-flex">
               <select
                 id="language"
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as Language)}
-                className="cursor-pointer appearance-none rounded-md border border-[#bcaed1] bg-[#5a3f80] px-2 py-0.5 text-xs font-semibold text-white outline-none"
+                className="cursor-pointer appearance-none rounded-full border border-[#cfbce2] bg-[#efe5f6]/70 px-3 py-1.5 pr-8 text-xs font-bold tracking-wide text-[#4f3a6a] outline-none ring-1 ring-[#c9b2dd] backdrop-blur-md"
               >
-                <option value="nl">NL</option>
                 <option value="en">EN</option>
+                <option value="nl">NL</option>
                 <option value="tr">TR</option>
                 <option value="fr">FR</option>
               </select>
+              <span className="pointer-events-none absolute inset-y-0 right-3 inline-flex items-center text-[#6d4c92]">
+                <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5">
+                  <path
+                    d="M5.5 7.5 10 12l4.5-4.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </div>
-
-            <a href="#cta" className="hm-cta-primary">
-              {t.primaryCta}
-            </a>
           </div>
         </nav>
       </header>
@@ -675,27 +677,27 @@ function App() {
         <section id="hero" className="py-14 md:py-20">
           <div className="hm-container grid items-center gap-8 md:grid-cols-2">
             <div className="animate-on-scroll animate-fade-right">
-              <p className="mb-3 inline-flex rounded-full bg-[#eadff4] px-3 py-1 text-xs font-semibold text-[#604b7f]">
+              <p className="mb-3 inline-flex rounded-full bg-[#4b356a] px-3 py-1 text-xs font-semibold text-[#efe4ff]">
                 {t.heroEyebrow}
               </p>
-              <h1 className="text-4xl font-bold leading-tight text-[#2f2240] sm:text-5xl">
+              <h1 className="text-4xl font-bold leading-tight text-[#f4ecff] sm:text-5xl">
                 <span className="bg-gradient-to-r from-[#6d4c92] via-[#8f6ab6] to-[#b48ccf] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(109,76,146,0.25)]">
                   {language === 'en' && 'Money feels clearer'}
                   {language === 'nl' && 'Geld voelt duidelijker'}
                   {language === 'tr' && 'Para daha net'}
                   {language === 'fr' && "L’argent devient plus clair"}
                 </span>{' '}
-                <span className="text-[#2f2240]">
+                <span className="text-[#f4ecff]">
                   {language === 'en' && 'when someone explains it like a friend.'}
                   {language === 'nl' && 'wanneer iemand het uitlegt als een vriendin.'}
                   {language === 'tr' && 'biri sana arkadaş gibi anlattığında.'}
                   {language === 'fr' && 'quand on te l’explique comme une amie.'}
                 </span>
               </h1>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-[#66597f] sm:text-lg">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-[#d7c8ea] sm:text-lg">
                 {t.heroBody}
               </p>
-              <p className="mt-3 text-sm font-medium text-[#7f6f96]">{t.heroTrust}</p>
+              <p className="mt-3 text-sm font-medium text-[#c7b6de]">{t.heroTrust}</p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a href="#cta" className="hm-cta-primary">
@@ -738,17 +740,17 @@ function App() {
 
         <section
           id="about"
-          className="border-y border-[#e7ddee] bg-white/60 py-12 backdrop-blur md:py-16"
+          className="border-y border-[#4f3a69] bg-[#2b1f40]/70 py-12 backdrop-blur md:py-16"
         >
           <div className="hm-container">
             <div className="flex flex-col gap-8">
               <div className="animate-on-scroll animate-fade-up">
                 <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-                  <h2 className="text-2xl font-bold tracking-tight text-[#2f2240] sm:text-3xl">
+                  <h2 className="text-2xl font-bold tracking-tight text-[#f5eeff] sm:text-3xl">
                     <span className="font-[ui-serif,Georgia,serif]">{t.aboutTitle}</span>
                   </h2>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-[#f3eee7] px-4 py-2 text-sm font-semibold text-[#2c2a3f] ring-1 ring-[#eadff1]">
-                    <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#c96c5f]" />
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#3a2a55] px-4 py-2 text-sm font-semibold text-[#efe6fa] ring-1 ring-[#5a427a]">
+                    <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#b07be0]" />
                     {t.aboutSocialProof}
                   </div>
                 </div>
@@ -756,36 +758,36 @@ function App() {
 
               <div className="grid gap-6 md:grid-cols-12 md:gap-8">
                 <div className="animate-on-scroll animate-fade-right md:col-span-7">
-                  <div className="rounded-3xl bg-white p-7 ring-1 ring-[#eadff1] shadow-[0_14px_30px_rgba(107,77,146,0.10)]">
+                  <div className="rounded-3xl bg-[#312347]/90 p-7 ring-1 ring-[#5a427a] shadow-[0_14px_30px_rgba(8,4,16,0.36)]">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6d4c92]">
                       {t.manifestoKicker}
                     </p>
-                    <h3 className="mt-3 text-2xl font-bold leading-tight text-[#2f2240] sm:text-3xl">
+                    <h3 className="mt-3 text-2xl font-bold leading-tight text-[#f5eeff] sm:text-3xl">
                       <span className="font-[ui-serif,Georgia,serif]">{t.manifestoTitle}</span>
                     </h3>
-                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#66597f]">
+                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#d2c2e7]">
                       {t.manifestoBody}
                     </p>
                   </div>
                 </div>
 
                 <div className="animate-on-scroll animate-fade-up md:col-span-5">
-                  <div className="rounded-3xl bg-gradient-to-br from-[#f3eee7] to-[#efe5f6] p-7 ring-1 ring-[#eadff1]">
-                    <h3 className="text-lg font-semibold text-[#2f2240]">
+                  <div className="rounded-3xl bg-gradient-to-br from-[#3a2a55] to-[#312347] p-7 ring-1 ring-[#5a427a]">
+                    <h3 className="text-lg font-semibold text-[#f3ecff]">
                       <span className="font-[ui-serif,Georgia,serif]">{t.valuesTitle}</span>
                     </h3>
                     <div className="mt-4 grid gap-3">
-                      <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-[#eadff1]">
-                        <p className="text-sm font-semibold text-[#2f2240]">{t.value1Title}</p>
-                        <p className="mt-1 text-sm text-[#66597f]">{t.value1Body}</p>
+                      <div className="rounded-2xl bg-[#3e2d5c]/80 p-4 ring-1 ring-[#5a427a]">
+                        <p className="text-sm font-semibold text-[#f3ecff]">{t.value1Title}</p>
+                        <p className="mt-1 text-sm text-[#d2c2e7]">{t.value1Body}</p>
                       </div>
-                      <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-[#eadff1]">
-                        <p className="text-sm font-semibold text-[#2f2240]">{t.value2Title}</p>
-                        <p className="mt-1 text-sm text-[#66597f]">{t.value2Body}</p>
+                      <div className="rounded-2xl bg-[#3e2d5c]/80 p-4 ring-1 ring-[#5a427a]">
+                        <p className="text-sm font-semibold text-[#f3ecff]">{t.value2Title}</p>
+                        <p className="mt-1 text-sm text-[#d2c2e7]">{t.value2Body}</p>
                       </div>
-                      <div className="rounded-2xl bg-white/70 p-4 ring-1 ring-[#eadff1]">
-                        <p className="text-sm font-semibold text-[#2f2240]">{t.value3Title}</p>
-                        <p className="mt-1 text-sm text-[#66597f]">{t.value3Body}</p>
+                      <div className="rounded-2xl bg-[#3e2d5c]/80 p-4 ring-1 ring-[#5a427a]">
+                        <p className="text-sm font-semibold text-[#f3ecff]">{t.value3Title}</p>
+                        <p className="mt-1 text-sm text-[#d2c2e7]">{t.value3Body}</p>
                       </div>
                     </div>
                   </div>
@@ -794,24 +796,16 @@ function App() {
 
               <div className="grid gap-6 md:grid-cols-12 md:gap-8">
                 <div className="animate-on-scroll animate-fade-up md:col-span-7">
-                  <div className="rounded-3xl bg-white p-7 ring-1 ring-[#eadff1] shadow-[0_14px_30px_rgba(107,77,146,0.10)]">
-                    <h3 className="text-lg font-semibold text-[#2f2240]">
+                  <div className="rounded-3xl bg-[#312347]/90 p-7 ring-1 ring-[#5a427a] shadow-[0_14px_30px_rgba(8,4,16,0.36)]">
+                    <h3 className="text-lg font-semibold text-[#f3ecff]">
                       <span className="font-[ui-serif,Georgia,serif]">{t.founderTitle}</span>
                     </h3>
-                    <div className="mt-5 grid gap-5 sm:grid-cols-[96px_1fr] sm:items-start">
-                      <img
-                        src={founderPath}
-                        alt="Founder portrait"
-                        className="h-24 w-24 rounded-2xl object-cover ring-1 ring-[#eadff1]"
-                        loading="eager"
-                        fetchPriority="high"
-                        decoding="async"
-                      />
+                    <div className="mt-5 grid gap-5 sm:grid-cols-1 sm:items-start">
                       <div>
-                        <p className="text-sm leading-relaxed text-[#66597f]">{t.founderBio}</p>
-                        <blockquote className="mt-4 rounded-2xl bg-[#f8f2fc] p-4 ring-1 ring-[#eadff1]">
-                          <p className="text-sm font-semibold text-[#2f2240]">{t.founderQuote}</p>
-                          <p className="mt-3 text-sm text-[#5b4b74]">
+                        <p className="text-sm leading-relaxed text-[#d2c2e7]">{t.founderBio}</p>
+                        <blockquote className="mt-4 rounded-2xl bg-[#3a2a55] p-4 ring-1 ring-[#5a427a]">
+                          <p className="text-sm font-semibold text-[#f3ecff]">{t.founderQuote}</p>
+                          <p className="mt-3 text-sm text-[#cbbbe2]">
                             <span className="font-[cursive]">{t.founderSignOff}</span>
                           </p>
                         </blockquote>
@@ -872,7 +866,7 @@ function App() {
         <section className="py-12 md:py-16">
           <div className="hm-container animate-on-scroll animate-fade-up">
             <h2 className="hm-section-title">{t.proofTitle}</h2>
-            <div className="mx-auto mt-6 w-full max-w-2xl rounded-3xl border border-[#d8c8e8]/80 bg-white/20 p-3 shadow-[0_16px_36px_rgba(76,47,112,0.08)] backdrop-blur-xl sm:p-5">
+            <div className="mx-auto mt-6 w-full max-w-2xl rounded-3xl border border-[#6e5390]/80 bg-[#312347]/65 p-3 shadow-[0_16px_36px_rgba(8,4,16,0.4)] backdrop-blur-xl sm:p-5">
               <div
                 className="overflow-hidden rounded-2xl"
                 onTouchStart={(event) => {
@@ -896,7 +890,7 @@ function App() {
                   {testimonials.map((tst) => (
                     <figure
                       key={tst.quote}
-                      className="relative w-full shrink-0 overflow-hidden rounded-2xl border border-[#dfcfee]/75 bg-white/28 p-7 text-[#3a2a53] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] ring-1 ring-white/30 min-h-[270px] sm:min-h-[290px]"
+                      className="relative w-full shrink-0 overflow-hidden rounded-2xl border border-[#6e5390]/75 bg-[#3a2a55]/70 p-7 text-[#f0e8fb] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-white/10 min-h-[270px] sm:min-h-[290px]"
                     >
                       <span
                         aria-hidden="true"
@@ -904,9 +898,9 @@ function App() {
                       >
                         “
                       </span>
-                      <blockquote className="pt-8 text-base leading-relaxed text-[#473265] sm:text-[1.03rem]">{tst.quote}</blockquote>
+                      <blockquote className="pt-8 text-base leading-relaxed text-[#e6daf7] sm:text-[1.03rem]">{tst.quote}</blockquote>
                       {tst.author ? (
-                        <figcaption className="mt-4 text-sm font-semibold text-[#3a2c58]">
+                        <figcaption className="mt-4 text-sm font-semibold text-[#f1eaff]">
                           {tst.author}
                         </figcaption>
                       ) : null}
@@ -918,7 +912,7 @@ function App() {
                 <button
                   type="button"
                   onClick={goToPrevTestimonial}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffffffb3] text-[#5b437f] ring-1 ring-[#d6c4e7] transition hover:bg-white"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3a2a55] text-[#eadff8] ring-1 ring-[#6e5390] transition hover:bg-[#4a356b]"
                   aria-label="Previous testimonial"
                 >
                   ←
@@ -933,7 +927,7 @@ function App() {
                       className={`h-2.5 rounded-full transition-all ${
                         activeTestimonial === index
                           ? 'w-7 bg-[#6d4c92]'
-                          : 'w-2.5 bg-[#d3c0e6] hover:bg-[#b69ad2]'
+                          : 'w-2.5 bg-[#6f5591] hover:bg-[#8a6ab0]'
                       }`}
                     />
                   ))}
@@ -941,7 +935,7 @@ function App() {
                 <button
                   type="button"
                   onClick={goToNextTestimonial}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffffffb3] text-[#5b437f] ring-1 ring-[#d6c4e7] transition hover:bg-white"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3a2a55] text-[#eadff8] ring-1 ring-[#6e5390] transition hover:bg-[#4a356b]"
                   aria-label="Next testimonial"
                 >
                   →
@@ -1083,13 +1077,9 @@ function App() {
               ].map((item) => (
                 <article
                   key={item.step}
-                  className={`group relative flex-1 overflow-hidden rounded-2xl border-2 border-[#c8addf] bg-gradient-to-br from-white/88 to-[#f6effc]/82 p-6 shadow-[0_12px_28px_rgba(87,56,122,0.10)] transition-all duration-300 ${item.offset} hover:-translate-y-2 hover:rotate-[-0.7deg] hover:border-[#9469c4] hover:bg-gradient-to-br hover:from-[#f4e5ff] hover:to-[#efe2ff] hover:shadow-[0_22px_38px_rgba(87,56,122,0.26)]`}
+                  className={`group relative flex-1 overflow-hidden rounded-2xl border-2 border-[#8b6aac] bg-[#34254b]/90 p-6 shadow-[0_12px_28px_rgba(20,11,34,0.35)] transition-all duration-300 ${item.offset} hover:-translate-y-1 hover:border-[#a784ca] hover:shadow-[0_16px_30px_rgba(20,11,34,0.42)]`}
                 >
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#bc8df0]/30 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
-                  />
-                  <h3 className="relative text-lg font-bold text-[#3a2754] transition-colors duration-300 group-hover:text-[#4f2385]">
+                  <h3 className="relative text-lg font-bold text-[#f3ecff] transition-colors duration-300 group-hover:text-[#ffffff]">
                     {item.step}
                   </h3>
                 </article>
@@ -1100,9 +1090,9 @@ function App() {
 
         <section id="community" className="py-12 md:py-16">
           <div className="hm-container animate-on-scroll animate-fade-up">
-            <div className="hm-card !bg-[#f3edf8]">
+            <div className="hm-card !bg-[#312347]/90">
               <h2 className="hm-section-title !text-2xl">{t.communityTitle}</h2>
-              <p className="mt-3 max-w-2xl text-[#66597f]">{t.communityBody}</p>
+              <p className="mt-3 max-w-2xl text-[#d2c2e7]">{t.communityBody}</p>
             </div>
             <div className="mt-6 overflow-hidden rounded-2xl ring-1 ring-[#e4d9ee]">
               <img
@@ -1116,9 +1106,9 @@ function App() {
 
         <section id="cta" className="py-14 md:py-20">
           <div className="hm-container animate-on-scroll animate-fade-up">
-            <div className="rounded-3xl bg-gradient-to-r from-[#ece4f5] to-[#f3eee7] p-8 text-center ring-1 ring-[#dfd3eb] md:p-12">
-              <h2 className="text-3xl font-bold text-[#312548] sm:text-4xl">{t.finalTitle}</h2>
-              <p className="mx-auto mt-3 max-w-2xl text-[#6a5c83]">{t.finalBody}</p>
+            <div className="rounded-3xl bg-gradient-to-r from-[#3b2b57] to-[#2f2245] p-8 text-center ring-1 ring-[#5a427a] md:p-12">
+              <h2 className="text-3xl font-bold text-[#f3ecff] sm:text-4xl">{t.finalTitle}</h2>
+              <p className="mx-auto mt-3 max-w-2xl text-[#d2c2e7]">{t.finalBody}</p>
               <a href="https://instagram.com/hermoney.be" target="_blank" rel="noreferrer" className="hm-cta-primary mt-7 inline-flex">
                 {t.primaryCta}
               </a>
@@ -1127,9 +1117,9 @@ function App() {
         </section>
       </main>
 
-      <footer className="border-t border-[#ddd3e8] py-8">
-        <div className="hm-container grid gap-6 md:grid-cols-3">
-          <div>
+      <footer className="border-t border-[#4f3a69] py-8">
+        <div className="hm-container grid gap-6 md:grid-cols-[1.2fr_1fr_1fr]">
+          <div className="md:pr-12">
             <img
               src={logoPath}
               alt="HerMoney"
@@ -1137,21 +1127,32 @@ function App() {
               loading="eager"
               decoding="async"
             />
-            <p className="mt-3 text-sm text-[#7b6d93]">
+            <p className="mt-3 text-sm text-[#d2c2e7]">
               {t.footerTagline}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            <a href="#" className="hm-nav-link">{t.footerAbout}</a>
-            <a href="#" className="hm-nav-link">{t.footerBlog}</a>
-            <a href="#" className="hm-nav-link">{t.footerPodcast}</a>
-            <a href="#programs" className="hm-nav-link">{t.footerPrograms}</a>
+          <div className="flex flex-wrap items-center gap-3 md:justify-center">
+            <a
+              href="#"
+              className="inline-flex min-h-11 items-center rounded-md px-3 py-2.5 text-sm font-medium text-[#d9cbea]"
+            >
+              {t.footerAbout}
+            </a>
+            <a
+              href="#programs"
+              className="inline-flex min-h-11 items-center rounded-md px-3 py-2.5 text-sm font-medium text-[#d9cbea]"
+            >
+              {t.footerPrograms}
+            </a>
+          </div>
+
+          <div className="flex items-center justify-start gap-3 md:justify-end">
             <a
               href="https://linkedin.com/company/hermoneybe"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#dfd3eb] transition hover:brightness-95"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3a2a55] ring-1 ring-[#5a427a]"
               aria-label="HerMoney LinkedIn"
             >
               <img
@@ -1166,7 +1167,7 @@ function App() {
               href="https://instagram.com/hermoney.be"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#dfd3eb] transition hover:brightness-95"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3a2a55] ring-1 ring-[#5a427a]"
               aria-label="HerMoney Instagram"
             >
               <img
@@ -1179,13 +1180,13 @@ function App() {
             </a>
           </div>
 
-          <div>
-            <p className="text-sm font-semibold text-[#4a3a63]">{t.newsletterTitle}</p>
+          <div className="md:col-span-3">
+            <p className="text-sm font-semibold text-[#efe6fa]">{t.newsletterTitle}</p>
             <form className="mt-3 flex flex-col gap-2 sm:flex-row">
               <input
                 type="email"
                 placeholder={t.newsletterPlaceholder}
-                className="w-full rounded-xl border border-[#d9cce5] bg-white px-3 py-2 text-sm text-[#3d3154] outline-none"
+                className="w-full rounded-xl border border-[#6e5390] bg-[#2b1f40] px-3 py-2 text-sm text-[#efe6fa] outline-none"
               />
               <button
                 type="submit"
