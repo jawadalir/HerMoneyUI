@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 type Language = 'nl' | 'en' | 'tr' | 'fr'
+type Testimonial = { quote: string; author?: string }
 
 const copy = {
   en: {
@@ -33,16 +34,44 @@ const copy = {
     testimonial1:
       '"I stopped overthinking and finally started making money decisions with confidence."',
     testimonial2: '"No jargon. Just clarity and action. Exactly what I needed."',
+    testimonials: [
+      {
+        quote:
+          'Hermoney is highly recommended for every woman! Sumeyye explains step by step how you can start investing. She remains available after the workshop whenever something is unclear!',
+        author: 'Sarah',
+      },
+      {
+        quote:
+          'It was an incredibly clarifying workshop in which I got an answer about the halal and haram side of investing. I could not ask these questions anywhere else, but I could with Sumeyye. A recommendation for everyone!',
+      },
+      {
+        quote:
+          "I found the HerMoney workshop super engaging. Sumeyye makes investing more familiar for women and takes it out of the sphere of 'men in suits'. In the meantime I started myself and I love it. I think many women would really enjoy this!",
+        author: 'Naziha El Handoussi',
+      },
+      {
+        quote:
+          'For a long time I wanted to invest, but I had no idea how to begin. Thanks to Hermoney I am well informed about investing and I could start investing right away.',
+        author: 'Gamze Anaz',
+      },
+      {
+        quote:
+          'After I became a mother, I wanted to start investing for my child, but I did not know well where to start. During the workshop I received clear explanations and I could get started immediately. Because I did not grow up with much myself, this is very important to me.',
+      },
+    ] as Testimonial[],
     metric1: '10K+ community members',
     metric2: 'Weekly coaching sessions',
     metric3: 'Expert-led guidance',
     programsTitle: 'Programs',
     program1: 'Financial Coaching',
-    program1Body: 'Build confidence with personal support and accountability.',
+    program1Body:
+      'Build confidence with personal support and accountability. Get clear next steps, weekly check-ins, and a plan you can actually follow.',
     program2: 'Investing Club',
-    program2Body: 'Start small, stay consistent, and grow with structure.',
+    program2Body:
+      'Start small, stay consistent, and grow with structure. Learn the basics, get prompts to take action, and build habits that last.',
     program3: 'Money Bootcamps',
-    program3Body: 'Focused learning sprints for faster progress.',
+    program3Body:
+      'Focused learning sprints for faster progress. Short lessons, practical exercises, and a simple roadmap from “confused” to “confident”.',
     tipsTitle: 'Quick Money Tips',
     tip1: 'Pay yourself first.',
     tip2: 'Start small. Stay consistent.',
@@ -80,9 +109,9 @@ const copy = {
     value3Body: 'Because confidence grows faster together.',
     founderTitle: 'Meet the Founder',
     founderBio:
-      'Founder bio placeholder: a short, warm story about why she started HerMoney Belgium and how she helps women feel calm and capable with money.',
+      'HerMoney was created to empower women with the knowledge, confidence, and tools to invest and build long-term, generational wealth in a supportive and inclusive environment.',
     founderQuote:
-      '“I want every woman in Belgium to feel like she finally has a plan—and a place to ask questions.”',
+      'Educational workshops & keynotes for women who want to invest and build generational wealth.',
     founderSignOff: '— Founder, HerMoney Belgium',
     localTitle: 'Local expertise, Belgian realities',
     localBody:
@@ -118,16 +147,44 @@ const copy = {
     testimonial1:
       '"Ik ben gestopt met overdenken en maak eindelijk geldkeuzes met vertrouwen."',
     testimonial2: '"Geen jargon. Gewoon duidelijkheid en actie. Precies wat ik nodig had."',
+    testimonials: [
+      {
+        quote:
+          'Hermoney is een aanrader voor elke vrouw! Sumeyye legt stap voor stap uit hoe je kunt starten met beleggen. Ze is na de workshop steeds bereikbaar wanneer er iets niet duidelijk is!',
+        author: 'Sarah',
+      },
+      {
+        quote:
+          'Het was een enorm verhelderende workshop waarin ik een antwoord kreeg over het halal en haram gedeelte van investeren. Deze vragen kon ik nergens kwijt maar wel bij Sumeyye. Een aanrader voor iedereen!',
+      },
+      {
+        quote:
+          "Ik vond de workshop van HerMoney mega boeiend. Sumeyye zorgt ervoor dat beleggen bekender wordt bij vrouwen en haalt het uit de sfeer van de 'mannen in pakken'. Inmiddels ben ik zelf gestart en ik vind het geweldig. Ik denk dat heel veel vrouwen dit echt leuk zouden vinden!",
+        author: 'Naziha El Handoussi',
+      },
+      {
+        quote:
+          'Al lange tijd wilde ik beleggen, maar ik had geen idee hoe ik moest beginnen. Dankzij Hermoney ben ik goed geïnformeerd over beleggen en kon ik meteen starten met beleggen.',
+        author: 'Gamze Anaz',
+      },
+      {
+        quote:
+          'Nadat ik mama ben geworden, wilde ik starten met beleggen voor mijn kind, maar ik wist niet goed waar te starten. Tijdens de workshop kreeg ik duidelijke uitleg en kon ik meteen aan de slag. Omdat ik zelf niet met veel ben opgegroeid is dit heel belangrijk voor mij.',
+      },
+    ] as Testimonial[],
     metric1: '10K+ communityleden',
     metric2: 'Wekelijkse coachingsessies',
     metric3: 'Begeleiding door experts',
     programsTitle: 'Programma’s',
     program1: 'Financiële Coaching',
-    program1Body: 'Bouw vertrouwen op met persoonlijke support en accountability.',
+    program1Body:
+      'Bouw vertrouwen op met persoonlijke support en accountability. Verwacht duidelijke next steps, wekelijkse check-ins en een plan dat haalbaar is.',
     program2: 'Investeerclub',
-    program2Body: 'Start klein, blijf consistent en groei met structuur.',
+    program2Body:
+      'Start klein, blijf consistent en groei met structuur. Leer de basis, krijg prompts om actie te nemen en bouw gewoontes die blijven.',
     program3: 'Money Bootcamps',
-    program3Body: 'Gerichte leertrajecten voor snellere vooruitgang.',
+    program3Body:
+      'Gerichte leertrajecten voor snellere vooruitgang. Korte lessen, praktische oefeningen en een simpel stappenplan naar meer zekerheid.',
     tipsTitle: 'Snelle geldtips',
     tip1: 'Betaal eerst jezelf.',
     tip2: 'Start klein. Blijf consistent.',
@@ -166,9 +223,9 @@ const copy = {
     value3Body: 'Want samen groeit je zelfzekerheid sneller.',
     founderTitle: 'Meet the Founder',
     founderBio:
-      'Founder bio placeholder: een korte, warme story over waarom HerMoney België begon en hoe ze vrouwen helpt rustig en sterk te worden met geld.',
+      'HerMoney is opgericht om vrouwen te versterken met kennis, vertrouwen en tools om te investeren en op lange termijn generatierijkdom op te bouwen in een ondersteunende en inclusieve omgeving.',
     founderQuote:
-      '“Ik wil dat elke vrouw in België voelt: ik heb eindelijk een plan—en ik mag vragen stellen.”',
+      'Educatieve workshops en keynotes voor vrouwen die willen investeren en generatierijkdom willen opbouwen.',
     founderSignOff: '— Founder, HerMoney België',
     localTitle: 'Lokale expertise, Belgische realiteit',
     localBody:
@@ -204,16 +261,44 @@ const copy = {
     testimonial1:
       '"Aşırı düşünmeyi bıraktım ve sonunda para kararlarımı güvenle veriyorum."',
     testimonial2: '"Jargon yok. Sadece netlik ve aksiyon. Tam ihtiyacım olan şey."',
+    testimonials: [
+      {
+        quote:
+          'Hermoney her kadin icin tavsiye edilir! Sumeyye yatirima nasil baslayabilecegini adim adim anlatiyor. Workshop sonrasi da bir sey net degilse her zaman ulasilabilir.',
+        author: 'Sarah',
+      },
+      {
+        quote:
+          'Bu cok aydinlatici bir workshoptu; yatirimin helal ve haram kismi hakkinda bir cevap aldim. Bu sorulari baska hicbir yerde soramiyordum ama Sumeyye ile sorabildim. Herkes icin tavsiye ederim!',
+      },
+      {
+        quote:
+          "HerMoney workshopunu cok ilginc buldum. Sumeyye, yatirimi kadinlar arasinda daha bilinir hale getiriyor ve onu 'takimli erkekler' atmosferinden cikariyor. Ben de bu arada basladim ve harika buluyorum. Bence cok fazla kadin bunu gercekten sever!",
+        author: 'Naziha El Handoussi',
+      },
+      {
+        quote:
+          'Uzun suredir yatirim yapmak istiyordum ama nasil baslayacagim konusunda hicbir fikrim yoktu. Hermoney sayesinde yatirim hakkinda iyi bilgilendirildim ve hemen baslayabildim.',
+        author: 'Gamze Anaz',
+      },
+      {
+        quote:
+          'Anne olduktan sonra cocugum icin yatirima baslamak istedim ama nereden baslayacagimi iyi bilmiyordum. Workshop sirasinda net aciklamalar aldim ve hemen harekete gecebildim. Ben kendim bolluk icinde buyumedigim icin bu benim icin cok onemli.',
+      },
+    ] as Testimonial[],
     metric1: '10K+ topluluk üyesi',
     metric2: 'Haftalık koçluk oturumları',
     metric3: 'Uzman destekli rehberlik',
     programsTitle: 'Programlar',
     program1: 'Finansal Koçluk',
-    program1Body: 'Kişisel destek ve takip ile özgüvenini geliştir.',
+    program1Body:
+      'Kişisel destek ve takip ile özgüvenini geliştir. Net sonraki adımlar, haftalık kontrol ve uygulanabilir bir plan.',
     program2: 'Yatırım Kulübü',
-    program2Body: 'Küçük başla, düzenli kal ve yapı ile büyü.',
+    program2Body:
+      'Küçük başla, düzenli kal ve yapı ile büyü. Temelleri öğren, aksiyon önerileri al ve kalıcı alışkanlıklar kur.',
     program3: 'Para Bootcamp’leri',
-    program3Body: 'Daha hızlı gelişim için odaklı öğrenme programları.',
+    program3Body:
+      'Daha hızlı gelişim için odaklı öğrenme programları. Kısa dersler, pratik egzersizler ve net bir yol haritası.',
     tipsTitle: 'Hızlı Para İpuçları',
     tip1: 'Önce kendine ödeme yap.',
     tip2: 'Küçük başla. Düzenli devam et.',
@@ -252,9 +337,9 @@ const copy = {
     value3Body: 'Çünkü güven birlikte daha hızlı büyür.',
     founderTitle: 'Kurucuyla Tanış',
     founderBio:
-      'Founder bio placeholder: HerMoney Belçika’yı neden kurduğunu ve kadınlara parayla daha sakin ve güçlü hissetmeleri için nasıl destek olduğunu anlatan kısa bir hikâye.',
+      'HerMoney, kadinlari bilgi, ozguven ve araclarla guclendirmek; yatirim yapmalarina ve destekleyici, kapsayici bir ortamda uzun vadeli nesiller boyu servet olusturmalarina yardim etmek icin kuruldu.',
     founderQuote:
-      '“Belçika’daki her kadının ‘artık bir planım var’ demesini istiyorum—ve soru sormaya alanı olsun.”',
+      'Yatirim yapmak ve nesiller boyu servet insa etmek isteyen kadinlar icin egitici workshoplar ve keynote oturumlari.',
     founderSignOff: '— Kurucu, HerMoney Belçika',
     localTitle: 'Yerel uzmanlık, Belçika gerçekleri',
     localBody:
@@ -290,16 +375,44 @@ const copy = {
     testimonial1:
       '"J’ai arrêté de trop réfléchir et je prends enfin mes décisions financières avec confiance."',
     testimonial2: '"Pas de jargon. Juste de la clarté et de l’action. Exactement ce qu’il me fallait."',
+    testimonials: [
+      {
+        quote:
+          'Hermoney est une recommandation pour chaque femme ! Sumeyye explique etape par etape comment commencer a investir. Elle reste disponible apres le workshop quand quelque chose n’est pas clair !',
+        author: 'Sarah',
+      },
+      {
+        quote:
+          'C’etait un workshop extremement eclairant dans lequel j’ai recu une reponse sur la partie halal et haram de l’investissement. Je ne pouvais poser ces questions nulle part, sauf chez Sumeyye. Une recommandation pour tout le monde !',
+      },
+      {
+        quote:
+          "J’ai trouve le workshop de HerMoney super interessant. Sumeyye fait en sorte que l’investissement soit plus connu chez les femmes et le sort de la sphere des 'hommes en costume'. Entre-temps j’ai commence moi-meme et je trouve ca genial. Je pense que beaucoup de femmes aimeraient vraiment ca !",
+        author: 'Naziha El Handoussi',
+      },
+      {
+        quote:
+          'Depuis longtemps je voulais investir, mais je n’avais aucune idee de comment commencer. Grace a Hermoney, j’ai ete bien informee sur l’investissement et j’ai pu commencer tout de suite.',
+        author: 'Gamze Anaz',
+      },
+      {
+        quote:
+          'Apres etre devenue maman, je voulais commencer a investir pour mon enfant, mais je ne savais pas bien par ou commencer. Pendant le workshop, j’ai recu des explications claires et j’ai pu me lancer tout de suite. Comme je n’ai pas grandi avec beaucoup de moyens, c’est tres important pour moi.',
+      },
+    ] as Testimonial[],
     metric1: '10K+ membres de la communauté',
     metric2: 'Sessions de coaching hebdomadaires',
     metric3: 'Accompagnement par des experts',
     programsTitle: 'Programmes',
     program1: 'Coaching Financier',
-    program1Body: 'Renforce ta confiance avec un accompagnement personnalisé.',
+    program1Body:
+      'Renforce ta confiance avec un accompagnement personnalisé. Des prochaines étapes claires, des check-ins réguliers et un plan réaliste.',
     program2: 'Club Investissement',
-    program2Body: 'Commence petit, reste régulière et progresse avec structure.',
+    program2Body:
+      'Commence petit, reste régulière et progresse avec structure. Apprends les bases, passe à l’action et construis des habitudes durables.',
     program3: 'Bootcamps Finance',
-    program3Body: 'Des parcours ciblés pour avancer plus vite.',
+    program3Body:
+      'Des parcours ciblés pour avancer plus vite. Leçons courtes, exercices pratiques et une feuille de route simple vers la confiance.',
     tipsTitle: 'Conseils rapides',
     tip1: 'Paye-toi en premier.',
     tip2: 'Commence petit. Reste régulière.',
@@ -338,9 +451,9 @@ const copy = {
     value3Body: 'Parce que la confiance se construit plus vite ensemble.',
     founderTitle: 'Rencontrer la fondatrice',
     founderBio:
-      'Founder bio placeholder : une histoire courte et chaleureuse sur le “pourquoi” de HerMoney Belgique et la façon d’aider les femmes à se sentir calmes et capables avec l’argent.',
+      'HerMoney a ete cree pour donner aux femmes les connaissances, la confiance et les outils necessaires pour investir et construire une richesse generationnelle durable dans un environnement inclusif et bienveillant.',
     founderQuote:
-      '“Je veux que chaque femme en Belgique se dise : j’ai enfin un plan—et un espace pour poser mes questions.”',
+      'Ateliers educatifs et keynotes pour les femmes qui veulent investir et construire une richesse generationnelle.',
     founderSignOff: '— Fondatrice, HerMoney Belgique',
     localTitle: 'Expertise locale, réalités belges',
     localBody:
@@ -374,6 +487,7 @@ const copy = {
   proofTitle: string
   testimonial1: string
   testimonial2: string
+  testimonials: Testimonial[]
   metric1: string
   metric2: string
   metric3: string
@@ -427,14 +541,19 @@ const copy = {
 
 function App() {
   const [language, setLanguage] = useState<Language>('nl')
+  const [activeTestimonial, setActiveTestimonial] = useState(0)
   const t = copy[language]
-  const heroConfidenceImg = new URL('../img/Feel confident with money.jpg', import.meta.url).href
-  const heroWorkshopImg = new URL('../img/image1.PNG', import.meta.url).href
-  const heroEmpowermentImg = new URL('../img/woman Emp.jpg', import.meta.url).href
-  const trustImg = new URL('../img/trust.jpg', import.meta.url).href
-  const logoPath = new URL('../img/logo.png', import.meta.url).href
+  const heroConfidenceImg = new URL('../img/feel-confident-optimized.webp', import.meta.url).href
+  const heroWorkshopImg = new URL('../img/image1-optimized.webp', import.meta.url).href
+  const heroEmpowermentImg = new URL('../img/woman-emp-optimized.webp', import.meta.url).href
+  const logoPath = new URL('../img/logo-transparent.webp', import.meta.url).href
+  const founderPath = new URL('../img/founder-optimized.webp', import.meta.url).href
+  const programCoachingImg = new URL('../img/financial-coaching-optimized.webp', import.meta.url).href
+  const programInvestingImg = new URL('../img/investing-club-optimized.webp', import.meta.url).href
+  const programBootcampsImg = new URL('../img/money-bootcamps-optimized.webp', import.meta.url).href
   const linkedInLogoPath = new URL('../img/linkedin.png', import.meta.url).href
   const socialLogoPath = new URL('../img/social.png', import.meta.url).href
+  const testimonials = useMemo(() => t.testimonials, [t.testimonials])
 
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>('.animate-on-scroll')
@@ -453,18 +572,63 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    setActiveTestimonial(0)
+  }, [language])
+
+  useEffect(() => {
+    ;[
+      logoPath,
+      founderPath,
+      heroConfidenceImg,
+      heroWorkshopImg,
+      heroEmpowermentImg,
+      programCoachingImg,
+      programInvestingImg,
+      programBootcampsImg,
+      linkedInLogoPath,
+      socialLogoPath,
+    ].forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [
+    founderPath,
+    heroConfidenceImg,
+    heroEmpowermentImg,
+    heroWorkshopImg,
+    programBootcampsImg,
+    programCoachingImg,
+    programInvestingImg,
+    linkedInLogoPath,
+    logoPath,
+    socialLogoPath,
+  ])
+
+  const goToNextTestimonial = () => {
+    setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const goToPrevTestimonial = () => {
+    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
   return (
     <div className="min-h-dvh bg-transparent text-[#2b1f33]">
       <header className="sticky top-0 z-50 border-b border-[#d9cde5] bg-[#f8f5fb]/92 backdrop-blur">
         <nav className="hm-container flex min-h-16 flex-wrap items-center justify-between gap-3 py-3 md:flex-nowrap">
           <a href="#hero" className="inline-flex items-center">
-            <img src={logoPath} alt="HerMoney" className="h-14 w-auto object-contain" />
+            <img
+              src={logoPath}
+              alt="HerMoney"
+              className="h-16 w-auto object-contain md:h-20"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
           </a>
 
           <div className="hidden items-center gap-1 md:flex">
-            <a href="#problem" className="hm-nav-link">
-              {t.navProblem}
-            </a>
             <a href="#solution" className="hm-nav-link">
               {t.navSolution}
             </a>
@@ -515,7 +679,18 @@ function App() {
                 {t.heroEyebrow}
               </p>
               <h1 className="text-4xl font-bold leading-tight text-[#2f2240] sm:text-5xl">
-                {t.heroTitle}
+                <span className="bg-gradient-to-r from-[#6d4c92] via-[#8f6ab6] to-[#b48ccf] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(109,76,146,0.25)]">
+                  {language === 'en' && 'Money feels clearer'}
+                  {language === 'nl' && 'Geld voelt duidelijker'}
+                  {language === 'tr' && 'Para daha net'}
+                  {language === 'fr' && "L’argent devient plus clair"}
+                </span>{' '}
+                <span className="text-[#2f2240]">
+                  {language === 'en' && 'when someone explains it like a friend.'}
+                  {language === 'nl' && 'wanneer iemand het uitlegt als een vriendin.'}
+                  {language === 'tr' && 'biri sana arkadaş gibi anlattığında.'}
+                  {language === 'fr' && 'quand on te l’explique comme une amie.'}
+                </span>
               </h1>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-[#66597f] sm:text-lg">
                 {t.heroBody}
@@ -537,16 +712,25 @@ function App() {
                 src={heroConfidenceImg}
                 alt="Women learning together"
                 className="h-44 w-full rounded-2xl object-cover ring-1 ring-[#e4d9ee] sm:h-52"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <img
                 src={heroWorkshopImg}
                 alt="Women in financial workshop"
                 className="h-44 w-full rounded-2xl object-cover ring-1 ring-[#e4d9ee] sm:h-52"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <img
                 src={heroEmpowermentImg}
                 alt="Women empowerment illustration"
                 className="h-44 w-full rounded-2xl object-cover ring-1 ring-[#e4d9ee] sm:col-span-2 sm:h-52"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>
@@ -615,10 +799,13 @@ function App() {
                       <span className="font-[ui-serif,Georgia,serif]">{t.founderTitle}</span>
                     </h3>
                     <div className="mt-5 grid gap-5 sm:grid-cols-[96px_1fr] sm:items-start">
-                      <div
-                        className="h-24 w-24 rounded-2xl bg-gradient-to-br from-[#2f2240] to-[#6d4c92] ring-1 ring-[#eadff1]"
-                        role="img"
-                        aria-label="Founder portrait placeholder"
+                      <img
+                        src={founderPath}
+                        alt="Founder portrait"
+                        className="h-24 w-24 rounded-2xl object-cover ring-1 ring-[#eadff1]"
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
                       />
                       <div>
                         <p className="text-sm leading-relaxed text-[#66597f]">{t.founderBio}</p>
@@ -659,27 +846,16 @@ function App() {
           </div>
         </section>
 
-        <section id="problem" className="py-12 md:py-16">
-          <div className="hm-container animate-on-scroll animate-fade-up">
-            <h2 className="hm-section-title">{t.problemTitle}</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <article className="hm-card"><p className="hm-card-body !mt-0">{t.problem1}</p></article>
-              <article className="hm-card"><p className="hm-card-body !mt-0">{t.problem2}</p></article>
-              <article className="hm-card"><p className="hm-card-body !mt-0">{t.problem3}</p></article>
-            </div>
-          </div>
-        </section>
-
         <section id="solution" className="py-12 md:py-16">
           <div className="hm-container animate-on-scroll animate-fade-up">
             <h2 className="hm-section-title">{t.solutionTitle}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <article className="hm-card">
+              <article className="hm-card relative overflow-visible">
                 <div className="hm-icon-dot">L</div>
                 <h3 className="hm-card-title mt-3">{t.learnTitle}</h3>
                 <p className="hm-card-body">{t.learnBody}</p>
               </article>
-              <article className="hm-card">
+              <article className="hm-card relative overflow-visible">
                 <div className="hm-icon-dot">G</div>
                 <h3 className="hm-card-title mt-3">{t.growTitle}</h3>
                 <p className="hm-card-body">{t.growBody}</p>
@@ -696,16 +872,81 @@ function App() {
         <section className="py-12 md:py-16">
           <div className="hm-container animate-on-scroll animate-fade-up">
             <h2 className="hm-section-title">{t.proofTitle}</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <blockquote className="hm-card text-[#54476b]">{t.testimonial1}</blockquote>
-              <blockquote className="hm-card text-[#54476b]">{t.testimonial2}</blockquote>
-              <article className="hm-card overflow-hidden !p-0">
-                <img
-                  src={trustImg}
-                  alt="Trust indicator visual"
-                  className="h-full min-h-40 w-full object-cover"
-                />
-              </article>
+            <div className="mx-auto mt-6 w-full max-w-2xl rounded-3xl border border-[#d8c8e8]/80 bg-white/20 p-3 shadow-[0_16px_36px_rgba(76,47,112,0.08)] backdrop-blur-xl sm:p-5">
+              <div
+                className="overflow-hidden rounded-2xl"
+                onTouchStart={(event) => {
+                  event.currentTarget.dataset.touchX = String(event.changedTouches[0].clientX)
+                }}
+                onTouchEnd={(event) => {
+                  const startX = Number(event.currentTarget.dataset.touchX ?? '0')
+                  const deltaX = event.changedTouches[0].clientX - startX
+                  if (Math.abs(deltaX) < 40) return
+                  if (deltaX < 0) {
+                    goToNextTestimonial()
+                  } else {
+                    goToPrevTestimonial()
+                  }
+                }}
+              >
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
+                >
+                  {testimonials.map((tst) => (
+                    <figure
+                      key={tst.quote}
+                      className="relative w-full shrink-0 overflow-hidden rounded-2xl border border-[#dfcfee]/75 bg-white/28 p-7 text-[#3a2a53] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] ring-1 ring-white/30 min-h-[270px] sm:min-h-[290px]"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute left-5 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#f1e8fa] text-2xl font-black leading-none text-[#6d4c92] ring-1 ring-[#dfcfee]"
+                      >
+                        “
+                      </span>
+                      <blockquote className="pt-8 text-base leading-relaxed text-[#473265] sm:text-[1.03rem]">{tst.quote}</blockquote>
+                      {tst.author ? (
+                        <figcaption className="mt-4 text-sm font-semibold text-[#3a2c58]">
+                          {tst.author}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-4 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={goToPrevTestimonial}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffffffb3] text-[#5b437f] ring-1 ring-[#d6c4e7] transition hover:bg-white"
+                  aria-label="Previous testimonial"
+                >
+                  ←
+                </button>
+                <div className="flex items-center gap-2">
+                  {testimonials.map((item, index) => (
+                    <button
+                      key={item.quote}
+                      type="button"
+                      aria-label={`Go to testimonial ${index + 1}`}
+                      onClick={() => setActiveTestimonial(index)}
+                      className={`h-2.5 rounded-full transition-all ${
+                        activeTestimonial === index
+                          ? 'w-7 bg-[#6d4c92]'
+                          : 'w-2.5 bg-[#d3c0e6] hover:bg-[#b69ad2]'
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  onClick={goToNextTestimonial}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffffffb3] text-[#5b437f] ring-1 ring-[#d6c4e7] transition hover:bg-white"
+                  aria-label="Next testimonial"
+                >
+                  →
+                </button>
+              </div>
             </div>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="hm-pill">{t.metric1}</span>
@@ -720,16 +961,109 @@ function App() {
             <h2 className="hm-section-title">{t.programsTitle}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               <article className="hm-card">
+                <div className="-mx-6 -mt-6 mb-4 overflow-hidden rounded-t-2xl">
+                  <img
+                    src={programCoachingImg}
+                    alt={t.program1}
+                    className="h-40 w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="pointer-events-none -mt-12 h-12 bg-gradient-to-t from-white to-transparent" />
+                </div>
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#efe5f6] text-[#6d4c92] ring-1 ring-[#eadff1]">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-5 w-5"
+                  >
+                    <path
+                      d="M7 18v-1a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v1"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                </div>
                 <h3 className="hm-card-title">{t.program1}</h3>
                 <p className="hm-card-body">{t.program1Body}</p>
                 <a href="#cta" className="hm-inline-link">{t.learnMore}</a>
               </article>
               <article className="hm-card">
+                <div className="-mx-6 -mt-6 mb-4 overflow-hidden rounded-t-2xl">
+                  <img
+                    src={programInvestingImg}
+                    alt={t.program2}
+                    className="h-40 w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="pointer-events-none -mt-12 h-12 bg-gradient-to-t from-white to-transparent" />
+                </div>
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#efe5f6] text-[#6d4c92] ring-1 ring-[#eadff1]">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-5 w-5"
+                  >
+                    <path
+                      d="M4 19V5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M7 15l4-4 3 3 6-6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M20 8V6h-2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
                 <h3 className="hm-card-title">{t.program2}</h3>
                 <p className="hm-card-body">{t.program2Body}</p>
                 <a href="#cta" className="hm-inline-link">{t.learnMore}</a>
               </article>
               <article className="hm-card">
+                <div className="-mx-6 -mt-6 mb-4 overflow-hidden rounded-t-2xl">
+                  <img
+                    src={programBootcampsImg}
+                    alt={t.program3}
+                    className="h-40 w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="pointer-events-none -mt-12 h-12 bg-gradient-to-t from-white to-transparent" />
+                </div>
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#efe5f6] text-[#6d4c92] ring-1 ring-[#eadff1]">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-5 w-5"
+                  >
+                    <path
+                      d="M13 2 3 14h7l-1 8 12-14h-7l-1-6Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
                 <h3 className="hm-card-title">{t.program3}</h3>
                 <p className="hm-card-body">{t.program3Body}</p>
                 <a href="#cta" className="hm-inline-link">{t.learnMore}</a>
@@ -738,24 +1072,28 @@ function App() {
           </div>
         </section>
 
-        <section className="py-12 md:py-16">
-          <div className="hm-container animate-on-scroll animate-fade-up">
-            <h2 className="hm-section-title">{t.tipsTitle}</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <article className="hm-tip-card">{t.tip1}</article>
-              <article className="hm-tip-card">{t.tip2}</article>
-              <article className="hm-tip-card">{t.tip3}</article>
-            </div>
-          </div>
-        </section>
-
         <section id="how" className="py-12 md:py-16">
           <div className="hm-container animate-on-scroll animate-fade-up">
             <h2 className="hm-section-title">{t.howTitle}</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <article className="hm-card"><h3 className="hm-card-title">1. {t.step1}</h3></article>
-              <article className="hm-card"><h3 className="hm-card-title">2. {t.step2}</h3></article>
-              <article className="hm-card"><h3 className="hm-card-title">3. {t.step3}</h3></article>
+            <div className="mt-10 flex flex-col gap-6 md:mt-12 md:flex-row md:items-start md:gap-6 md:pb-8">
+              {[
+                { step: `1. ${t.step1}`, offset: 'md:mt-0' },
+                { step: `2. ${t.step2}`, offset: 'md:mt-10' },
+                { step: `3. ${t.step3}`, offset: 'md:mt-20' },
+              ].map((item) => (
+                <article
+                  key={item.step}
+                  className={`group relative flex-1 overflow-hidden rounded-2xl border-2 border-[#c8addf] bg-gradient-to-br from-white/88 to-[#f6effc]/82 p-6 shadow-[0_12px_28px_rgba(87,56,122,0.10)] transition-all duration-300 ${item.offset} hover:-translate-y-2 hover:rotate-[-0.7deg] hover:border-[#9469c4] hover:bg-gradient-to-br hover:from-[#f4e5ff] hover:to-[#efe2ff] hover:shadow-[0_22px_38px_rgba(87,56,122,0.26)]`}
+                >
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[#bc8df0]/30 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <h3 className="relative text-lg font-bold text-[#3a2754] transition-colors duration-300 group-hover:text-[#4f2385]">
+                    {item.step}
+                  </h3>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -792,7 +1130,13 @@ function App() {
       <footer className="border-t border-[#ddd3e8] py-8">
         <div className="hm-container grid gap-6 md:grid-cols-3">
           <div>
-            <img src={logoPath} alt="HerMoney" className="h-10 w-auto object-contain" />
+            <img
+              src={logoPath}
+              alt="HerMoney"
+              className="h-12 w-auto object-contain"
+              loading="eager"
+              decoding="async"
+            />
             <p className="mt-3 text-sm text-[#7b6d93]">
               {t.footerTagline}
             </p>
@@ -810,7 +1154,13 @@ function App() {
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#dfd3eb] transition hover:brightness-95"
               aria-label="HerMoney LinkedIn"
             >
-              <img src={linkedInLogoPath} alt="LinkedIn" className="h-5 w-5 object-contain" />
+              <img
+                src={linkedInLogoPath}
+                alt="LinkedIn"
+                className="h-5 w-5 object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
             <a
               href="https://instagram.com/hermoney.be"
@@ -819,7 +1169,13 @@ function App() {
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#dfd3eb] transition hover:brightness-95"
               aria-label="HerMoney Instagram"
             >
-              <img src={socialLogoPath} alt="Social" className="h-5 w-5 object-contain" />
+              <img
+                src={socialLogoPath}
+                alt="Social"
+                className="h-5 w-5 object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           </div>
 
