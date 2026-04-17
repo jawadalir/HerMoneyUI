@@ -316,9 +316,11 @@ function App() {
   const t = copy[language]
   const heroConfidenceImg = new URL('../img/Feel confident with money.jpg', import.meta.url).href
   const heroWorkshopImg = new URL('../img/image1.PNG', import.meta.url).href
-  const heroEmpowermentImg = new URL('../img/woman Empovement.jpg', import.meta.url).href
+  const heroEmpowermentImg = new URL('../img/woman Emp.jpg', import.meta.url).href
   const trustImg = new URL('../img/trust.jpg', import.meta.url).href
-  const logoPath = new URL('../img/logo.PNG', import.meta.url).href
+  const logoPath = new URL('../img/logo.png', import.meta.url).href
+  const linkedInLogoPath = new URL('../img/linkedin.png', import.meta.url).href
+  const socialLogoPath = new URL('../img/social.png', import.meta.url).href
 
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>('.animate-on-scroll')
@@ -342,7 +344,7 @@ function App() {
       <header className="sticky top-0 z-50 border-b border-[#d9cde5] bg-[#f8f5fb]/92 backdrop-blur">
         <nav className="hm-container flex min-h-16 flex-wrap items-center justify-between gap-3 py-3">
           <a href="#hero" className="inline-flex items-center">
-            <img src={logoPath} alt="HerMoney" className="h-12 w-auto object-contain" />
+            <img src={logoPath} alt="HerMoney" className="h-14 w-auto object-contain" />
           </a>
 
           <div className="hidden items-center gap-1 md:flex">
@@ -580,6 +582,24 @@ function App() {
             <a href="#" className="hm-nav-link">{t.footerBlog}</a>
             <a href="#" className="hm-nav-link">{t.footerPodcast}</a>
             <a href="#programs" className="hm-nav-link">{t.footerPrograms}</a>
+            <a
+              href="https://linkedin.com/company/hermoneybe"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#dfd3eb] transition hover:brightness-95"
+              aria-label="HerMoney LinkedIn"
+            >
+              <img src={linkedInLogoPath} alt="LinkedIn" className="h-5 w-5 object-contain" />
+            </a>
+            <a
+              href="https://instagram.com/hermoney.be"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white ring-1 ring-[#dfd3eb] transition hover:brightness-95"
+              aria-label="HerMoney Instagram"
+            >
+              <img src={socialLogoPath} alt="Social" className="h-5 w-5 object-contain" />
+            </a>
           </div>
 
           <div>
