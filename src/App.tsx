@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 type Language = 'nl' | 'en' | 'tr' | 'fr'
 type Testimonial = { quote: string; author?: string }
@@ -542,6 +542,8 @@ const copy = {
 function App() {
   const [language, setLanguage] = useState<Language>('nl')
   const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
+  const languageMenuRef = useRef<HTMLDivElement | null>(null)
   const t = copy[language]
   const heroConfidenceImg = new URL('../img/feel-confident-optimized.webp', import.meta.url).href
   const heroWorkshopImg = new URL('../img/image1-optimized.webp', import.meta.url).href
@@ -554,6 +556,12 @@ function App() {
   const linkedInLogoPath = new URL('../img/linkedin.png', import.meta.url).href
   const socialLogoPath = new URL('../img/social.png', import.meta.url).href
   const testimonials = useMemo(() => t.testimonials, [t.testimonials])
+  const languageOptions: Array<{ value: Language; label: string; short: string }> = [
+    { value: 'en', label: 'English', short: 'EN' },
+    { value: 'nl', label: 'Dutch', short: 'NL' },
+    { value: 'tr', label: 'Turkish', short: 'TR' },
+    { value: 'fr', label: 'French', short: 'FR' },
+  ]
 
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>('.animate-on-scroll')
@@ -575,6 +583,16 @@ function App() {
   useEffect(() => {
     setActiveTestimonial(0)
   }, [language])
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!languageMenuRef.current?.contains(event.target as Node)) {
+        setIsLanguageOpen(false)
+      }
+    }
+    window.addEventListener('mousedown', handlePointerDown)
+    return () => window.removeEventListener('mousedown', handlePointerDown)
+  }, [])
 
   useEffect(() => {
     ;[
@@ -644,30 +662,61 @@ function App() {
           </div>
 
           <div className="flex w-full items-center justify-end gap-2 sm:w-auto sm:justify-end">
-            <div className="relative inline-flex">
-              <select
-                id="language"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as Language)}
-                className="cursor-pointer appearance-none rounded-full border border-[#cfbce2] bg-[#efe5f6]/70 px-3 py-1.5 pr-8 text-xs font-bold tracking-wide text-[#4f3a6a] outline-none ring-1 ring-[#c9b2dd] backdrop-blur-md"
+            <div ref={languageMenuRef} className="relative inline-flex">
+              <button
+                type="button"
+                onClick={() => setIsLanguageOpen((prev) => !prev)}
+                className="inline-flex min-w-[74px] items-center justify-between gap-2 rounded-full border border-[#cfbce2] bg-[#efe5f6]/70 px-3 py-1.5 text-xs font-bold tracking-wide text-[#4f3a6a] ring-1 ring-[#c9b2dd] backdrop-blur-md"
+                aria-haspopup="listbox"
+                aria-expanded={isLanguageOpen}
               >
-                <option value="en">EN</option>
-                <option value="nl">NL</option>
-                <option value="tr">TR</option>
-                <option value="fr">FR</option>
-              </select>
-              <span className="pointer-events-none absolute inset-y-0 right-3 inline-flex items-center text-[#6d4c92]">
-                <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5">
-                  <path
-                    d="M5.5 7.5 10 12l4.5-4.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+                <span>{language.toUpperCase()}</span>
+                <span className="inline-flex items-center text-[#6d4c92]">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                    className={`h-3.5 w-3.5 transition-transform duration-200 ${isLanguageOpen ? 'rotate-180' : ''}`}
+                  >
+                    <path
+                      d="M5.5 7.5 10 12l4.5-4.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </button>
+              {isLanguageOpen ? (
+                <div
+                  role="listbox"
+                  className="absolute right-0 top-[calc(100%+8px)] z-20 min-w-[150px] overflow-hidden rounded-2xl border border-[#6e5390] bg-[#2f2245]/95 p-1.5 shadow-[0_18px_34px_rgba(15,8,25,0.45)] backdrop-blur-xl"
+                >
+                  {languageOptions.map((option) => {
+                    const selected = option.value === language
+                    return (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => {
+                          setLanguage(option.value)
+                          setIsLanguageOpen(false)
+                        }}
+                        className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm transition-colors ${
+                          selected
+                            ? 'bg-[#7f5aa8] text-white'
+                            : 'text-[#e7daf7] hover:bg-[#563a7d] hover:text-white'
+                        }`}
+                        aria-selected={selected}
+                      >
+                        <span>{option.label}</span>
+                        <span className="text-xs font-semibold opacity-80">{option.short}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              ) : null}
             </div>
           </div>
         </nav>
