@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# HerMoney Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, conversion-focused landing page for a financial education and media brand supporting women in building money confidence.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a single-page React app built with Vite and Tailwind CSS.  
+The experience is designed as a blend of:
 
-## React Compiler
+- lifestyle brand aesthetics
+- practical financial education
+- supportive community onboarding
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The page focuses on clear messaging, emotional trust, and easy next steps rather than technical finance language.
 
-## Expanding the ESLint configuration
+## Main Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Multi-language toggle (NL / EN / TR / FR) with shared page logic
+- Sticky navigation with clear section flow
+- Conversion-first sections:
+  - Hero
+  - Problem
+  - Solution
+  - Social Proof
+  - Programs
+  - Quick Tips
+  - How It Works
+  - Community
+  - Final CTA
+  - Footer + newsletter signup
+- Card-based UI with soft lavender/beige palette
+- Scroll-triggered reveal animations (`fade-right`, `fade-up`)
+- Mobile-responsive layout
+- Local brand imagery integrated from the `img/` folder
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React 19
+- TypeScript
+- Vite 5
+- Tailwind CSS 3
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Folder Notes
+
+- `src/App.tsx`: main page structure, content, and language toggle logic
+- `src/index.css`: global styles, theme utilities, and animations
+- `img/`: local visual assets used on the page
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open: `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+Output is generated in `dist/`.
+
+## Deploy (Vercel)
+
+This Vite app is ready for Vercel deployment:
+
+- Framework preset: `Vite`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+## Content & Design Intent
+
+The copy is intentionally short and relatable (social-media style) to reduce overwhelm and improve conversions.  
+Design choices prioritize trust, warmth, and clarity:
+
+- soft rounded cards
+- generous spacing
+- friendly visual hierarchy
+- one consistent primary CTA across the page
